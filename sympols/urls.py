@@ -8,7 +8,7 @@ router.register('symbols_collection', Symbols_CollectoinViewSet)
 router.register('symbols', symbolViewSet)
 
 urlpatterns = [
-    path('rest/viewsets/', include(router.urls)),
+    # path('rest/viewsets/', include(router.urls)),
     ]
 
 urlpatterns += router.urls
