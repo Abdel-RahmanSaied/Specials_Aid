@@ -11,7 +11,6 @@ SYMBOL_DIMENTION_CHOICES = [
 
 class Symbols_Collectoin(models.Model):
     name = models.CharField(max_length=100)
-    size = models.IntegerField()
     dimension_of_symbols = models.CharField(max_length=5, choices=SYMBOL_DIMENTION_CHOICES)
     collection_image = models.ImageField(upload_to='symbols')
 
@@ -23,7 +22,7 @@ class symbol(models.Model):
     name = models.CharField(max_length=100)
     image = models.ImageField(upload_to='symbols')
     collection = models.ForeignKey(Symbols_Collectoin, on_delete=models.CASCADE)
-
+    text_to_talk = models.CharField(max_length=100)
     def __str__(self):
         return self.name
 

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
 ]
 CORS_ORIGIN_ALLOW_ALL = True
+SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [

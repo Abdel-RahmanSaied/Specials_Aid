@@ -11,3 +11,4 @@ urlpatterns = [
     path('rest/viewsets/', include(router.urls)),
     ]
 
+urlpatterns += router.urls

@@ -4,6 +4,7 @@ from .models import *
 from .serializers import *
 from .permissons import *
 # Create your views here.
+from rest_framework.permissions import IsAuthenticated
 
 
 class Symbols_CollectoinViewSet(viewsets.ModelViewSet):
