@@ -10,9 +10,6 @@ from django.core.mail import send_mail
 from dateutil.relativedelta import relativedelta
 from datetime import date
 
-from trainers.models import Trainer
-from clients.models import Client
-from. import email_sender
 
 
 # Create your models here.
