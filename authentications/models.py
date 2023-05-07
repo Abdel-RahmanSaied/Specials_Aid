@@ -11,13 +11,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import date
 
 
-
 # Create your models here.
-# CHOICES
-gander_choices = [
-    ("Male", "Male"),
-    ("Female", "Female")
-]
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -42,8 +36,6 @@ class USER(AbstractBaseUser, PermissionsMixin):
     last_name = models.CharField(max_length=30, null=False, blank=False)
     phone = models.CharField(max_length=15, unique=True, null=False, blank=False)
 
-    gander = models.CharField(max_length=6, choices=gander_choices, null=False, default="Male")
-
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -56,14 +48,13 @@ class USER(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-
     class Meta:
         verbose_name = 'User'
         verbose_name_plural = 'Users'
+
 
 # SIGNALS
 @receiver(post_save, sender=settings.AUTH_USER_MODEL)
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
-
