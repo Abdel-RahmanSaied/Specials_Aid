@@ -12,7 +12,7 @@ SYMBOL_DIMENTION_CHOICES = [
 class Symbols_Collectoin(models.Model):
     name = models.CharField(max_length=100)
     dimension_of_symbols = models.CharField(max_length=5, choices=SYMBOL_DIMENTION_CHOICES)
-    collection_image = models.ImageField(upload_to='symbols')
+    collection_image = models.ImageField(upload_to='symbols', )
 
     def __str__(self):
         return self.name
