@@ -18,3 +18,8 @@ class symbolViewSet(viewsets.ModelViewSet):
     queryset = symbol.objects.all()
     serializer_class = symbolSerializer
     permission_classes = [UserPermission]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['id', 'collection__id']
+    search_fields = ['name', 'text_to_talk']
+    lookup_field = 'id'
+
