@@ -1,4 +1,7 @@
 from django.db import models
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
+from imagekit.models import ImageSpecField
 # Create your models here.
 
 SYMBOL_DIMENTION_CHOICES = [
@@ -12,7 +15,7 @@ SYMBOL_DIMENTION_CHOICES = [
 class Symbols_Collectoin(models.Model):
     name = models.CharField(max_length=100)
     dimension_of_symbols = models.CharField(max_length=5, choices=SYMBOL_DIMENTION_CHOICES)
-    collection_image = models.ImageField(upload_to='symbols', )
+    collection_image = models.ImageField(upload_to="Symbols_Collectoin")
 
     def __str__(self):
         return self.name
