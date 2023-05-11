@@ -1,7 +1,5 @@
 from django.db import models
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
-from imagekit.models import ImageSpecField
+
 # Create your models here.
 
 SYMBOL_DIMENTION_CHOICES = [
