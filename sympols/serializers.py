@@ -29,10 +29,10 @@ class Symbols_CollectoinSerializer(serializers.ModelSerializer):
 
 
 class symbolSerializer(serializers.ModelSerializer):
-    collection = serializers.CharField(source='collection.name', read_only=True)
+    collection_name = serializers.CharField(source='collection.name', read_only=True)
     image = Base64ImageField()
 
     class Meta:
         model = symbol
-        fields = '__all__'
+        fields = ['id', 'name', 'image', 'collection', 'collection_name', 'text_to_talk']
 
