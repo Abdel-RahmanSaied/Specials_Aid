@@ -18,6 +18,7 @@ class Base64ImageField(serializers.ImageField):
 
         return super().to_internal_value(data)
 
+
 class Symbols_CollectoinSerializer(serializers.ModelSerializer):
     # collection_image = serializers.ImageField(max_length=None, allow_empty_file=False, use_url=True)
     collection_image = Base64ImageField()
@@ -28,7 +29,10 @@ class Symbols_CollectoinSerializer(serializers.ModelSerializer):
 
 
 class symbolSerializer(serializers.ModelSerializer):
+    collection = serializers.CharField(source='collection.name', read_only=True)
     image = Base64ImageField()
+
     class Meta:
         model = symbol
         fields = '__all__'
+
